@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .connected {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .disconnected {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .log-entry {
+            padding: 5px;
+            margin: 2px 0;
+            border-left: 3px solid #ccc;
+            background-color: #f5f5f5;
+        }
+        .log-entry.info { border-left-color: #17a2b8; }
+        .log-entry.success { border-left-color: #28a745; }
+        .log-entry.warning { border-left-color: #ffc107; }
+        .log-entry.error { border-left-color: #dc3545; }
+        #logs {
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>WebSocket Test Client</h1>
+    
+    <div id="status" class="status disconnected">Disconnected</div>
+    
+    <div>
+        <button onclick="connect()">Connect</button>
+        <button onclick="disconnect()">Disconnect</button>
+        <button onclick="sendHeartbeat()">Send Heartbeat</button>
+        <button onclick="subscribeAlerts()">Subscribe to Alerts</button>
+        <button onclick="clearLogs()">Clear Logs</button>
+    </div>
+    
+    <h2>Logs</h2>
+    <div id="logs"></div>
+
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script>
+        let socket = null;
+        const logsDiv = document.getElementById('logs');
+        const statusDiv = document.getElementById('status');
+
+        function addLog(message, type = 'info') {
+            const entry = document.createElement('div');
+            entry.className = `log-entry ${type}`;
+            entry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            logsDiv.insertBefore(entry, logsDiv.firstChild);
+        }
+
+        function updateStatus(connected) {
+            if (connected) {
+                statusDiv.textContent = 'Connected';
+                statusDiv.className = 'status connected';
+            } else {
+                statusDiv.textContent = 'Disconnected';
+                statusDiv.className = 'status disconnected';
+            }
+        }
+
+        function connect() {
+            if (socket && socket.connected) {
+                addLog('Already connected', 'warning');
+                return;
+            }
+
+            socket = io('http://localhost:3001', {
+                auth: {
+                    token: 'dev-token' // In dev mode, this won't be validated
+                }
+            });
+
+            socket.on('connect', () => {
+                addLog('Connected to WebSocket server', 'success');
+                updateStatus(true);
+            });
+
+            socket.on('connected', (data) => {
+                addLog(`Server acknowledged connection: ${JSON.stringify(data)}`, 'success');
+            });
+
+            socket.on('disconnect', () => {
+                addLog('Disconnected from server', 'error');
+                updateStatus(false);
+            });
+
+            socket.on('notification', (data) => {
+                addLog(`Notification: ${data.severity} - ${data.title}: ${data.message}`, data.severity);
+            });
+
+            socket.on('log', (data) => {
+                addLog(`Log [${data.level}] from ${data.source}: ${data.message}`, data.level);
+            });
+
+            socket.on('monitoring:update', (data) => {
+                addLog(`Monitoring Update: PPM=${data.promptsPerMinute}, Agents=${data.activeAgents}, Error Rate=${(data.errorRate * 100).toFixed(2)}%`, 'info');
+            });
+
+            socket.on('metric', (data) => {
+                addLog(`Metric: ${data.name} = ${data.value} ${data.unit || ''}`, 'info');
+            });
+
+            socket.on('alert:new', (data) => {
+                addLog(`Alert [${data.severity}]: ${data.type} - ${data.title}`, data.severity === 'critical' ? 'error' : 'warning');
+            });
+
+            socket.on('heartbeat', (data) => {
+                addLog(`Heartbeat response: ${JSON.stringify(data)}`, 'info');
+            });
+
+            socket.on('error', (error) => {
+                addLog(`Socket error: ${error}`, 'error');
+            });
+        }
+
+        function disconnect() {
+            if (socket) {
+                socket.disconnect();
+                socket = null;
+            }
+        }
+
+        function sendHeartbeat() {
+            if (socket && socket.connected) {
+                socket.emit('heartbeat');
+                addLog('Sent heartbeat', 'info');
+            } else {
+                addLog('Not connected', 'error');
+            }
+        }
+
+        function subscribeAlerts() {
+            if (socket && socket.connected) {
+                const alertTypes = ['accuracy', 'bias', 'compliance', 'security', 'performance'];
+                socket.emit('subscribe:alerts', alertTypes);
+                addLog(`Subscribed to alerts: ${alertTypes.join(', ')}`, 'success');
+            } else {
+                addLog('Not connected', 'error');
+            }
+        }
+
+        function clearLogs() {
+            logsDiv.innerHTML = '';
+        }
+
+        // Auto-connect on load
+        window.addEventListener('load', () => {
+            setTimeout(connect, 1000);
+        });
+    </script>
+</body>
+</html>

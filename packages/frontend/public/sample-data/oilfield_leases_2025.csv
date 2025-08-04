@@ -1,0 +1,11 @@
+Lease ID,Property Name,Location,County,State,Acreage,Current Owner,Lease Start Date,Lease End Date,Annual Rental,Royalty Rate,Status,Mineral Rights,Surface Rights,Production Status,Last Production Date,Total Production (BBL),Environmental Compliance,Title Status,Risk Score
+OFL-2025-001,Eagle Ridge Field,32.7749° N 102.3784° W,Midland,TX,640.5,ABC Energy Corp,2022-01-15,2025-01-15,32025,0.1875,Active,Severed,Included,Producing,2024-12-15,125000,Compliant,Clear,3.2
+OFL-2025-002,Permian Basin Unit A,31.9686° N 102.0779° W,Ector,TX,1280,XYZ Oil & Gas LLC,2021-06-01,2024-06-01,64000,0.2,Expiring,Included,Included,Producing,2024-12-20,450000,Compliant,Clear,2.8
+OFL-2025-003,West Texas Ranch,32.4487° N 100.4731° W,Taylor,TX,320,Johnson Family Trust,2023-03-15,2026-03-15,16000,0.1625,Active,Included,Restricted,Non-Producing,2023-08-10,15000,Under Review,Encumbered,5.5
+OFL-2025-004,Coyote Creek,33.1729° N 97.1081° W,Denton,TX,480.75,Lone Star Energy,2022-09-01,2025-09-01,24037.5,0.1875,Active,Severed,Included,Producing,2024-12-18,87500,Compliant,Clear,2.1
+OFL-2025-005,Desert Rose Field,31.4638° N 103.4934° W,Reeves,TX,960,Permian Resources Inc,2020-12-01,2023-12-01,48000,0.2125,Expired,Included,Included,Shut-In,2023-06-30,225000,Non-Compliant,Disputed,7.8
+OFL-2025-006,Blue Sky Ranch,32.7157° N 97.3228° W,Tarrant,TX,160,Metro Land Holdings,2024-01-01,2027-01-01,8000,0.15,Active,Not Included,Included,Non-Producing,N/A,0,Compliant,Clear,4.0
+OFL-2025-007,Rattlesnake Draw,31.8457° N 102.3674° W,Midland,TX,2560,Big Oil Corporation,2021-03-15,2024-03-15,128000,0.2,Expiring,Included,Included,Producing,2024-12-19,780000,Compliant,Clear,1.5
+OFL-2025-008,Sunset Valley,33.6348° N 101.8215° W,Lubbock,TX,720,Valley Energy Partners,2023-07-01,2026-07-01,36000,0.175,Active,Severed,Restricted,Non-Producing,2022-11-15,32000,Compliant,Under Review,4.8
+OFL-2025-009,Thunder Basin,32.0865° N 101.7082° W,Martin,TX,1920,Thunder Energy LLC,2022-05-15,2025-05-15,96000,0.1875,Active,Included,Included,Producing,2024-12-21,520000,Compliant,Clear,2.3
+OFL-2025-010,Wildcat Ridge,31.7593° N 106.4850° W,El Paso,TX,400,Frontier Oil Company,2024-02-01,2027-02-01,20000,0.1625,Active,Included,Included,Exploration,N/A,0,Pending,Clear,6.2

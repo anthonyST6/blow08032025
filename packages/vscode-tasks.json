@@ -1,0 +1,46 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start Dev Server",
+      "type": "npm",
+      "script": "dev",
+      "path": "${workspaceFolder}",
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "custom",
+        "pattern": {
+          "regexp": "^$"
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".*",
+          "endsPattern": "VITE .* ready in \\d+ ms"
+        }
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false
+      }
+    },
+    {
+      "label": "Stop Dev Server",
+      "type": "shell",
+      "command": "echo Stopping dev server...",
+      "windows": {
+        "command": "taskkill /F /IM node.exe"
+      }
+    },
+    {
+      "label": "tsc: build - packages/backend/tsconfig.json",
+      "type": "typescript",
+      "tsconfig": "packages/backend/tsconfig.json",
+      "problemMatcher": ["$tsc"],
+      "group": "build"
+    }
+  ]
+}

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Mission Control Persistence</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #0a0a0a;
+            color: #fff;
+        }
+        .container {
+            background-color: #1a1a1a;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            color: #f59e0b;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #f59e0b;
+            color: #000;
+            border: none;
+            padding: 12px 24px;
+            margin: 10px 5px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.2s;
+        }
+        button:hover {
+            background-color: #d97706;
+            transform: translateY(-1px);
+        }
+        button.secondary {
+            background-color: #374151;
+            color: #fff;
+        }
+        button.secondary:hover {
+            background-color: #4b5563;
+        }
+        .status {
+            background-color: #1f2937;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            border: 1px solid #374151;
+        }
+        .success {
+            color: #10b981;
+            font-weight: bold;
+        }
+        .info {
+            color: #3b82f6;
+        }
+        .warning {
+            color: #f59e0b;
+        }
+        .instructions {
+            background-color: #111827;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #f59e0b;
+        }
+        .instructions h3 {
+            color: #f59e0b;
+            margin-top: 0;
+        }
+        .instructions ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .instructions li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        code {
+            background-color: #374151;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Mission Control Persistence Tester</h1>
+        
+        <div class="instructions">
+            <h3>📋 Instructions</h3>
+            <ol>
+                <li>Click <strong>"Set Test Persistence"</strong> to simulate a user selection</li>
+                <li>Navigate to <strong>Mission Control</strong> (http://localhost:5173/mission-control)</li>
+                <li>Look for the <strong>PersistedStateIndicator</strong> in the bottom-right corner</li>
+                <li>The indicator should show:
+                    <ul>
+                        <li>Active Selection: Oilfield Land Lease Analysis</li>
+                        <li>Vertical: energy</li>
+                        <li>Buttons to "View Dashboard" and "Clear Selection"</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <div>
+            <button onclick="setPersistence()">Set Test Persistence</button>
+            <button onclick="checkPersistence()">Check Current State</button>
+            <button onclick="clearPersistence()" class="secondary">Clear Persistence</button>
+            <button onclick="navigateToMissionControl()" class="secondary">Go to Mission Control</button>
+        </div>
+
+        <div id="status" class="status"></div>
+    </div>
+
+    <script>
+        const STORAGE_KEY = 'missionControlState';
+        
+        function updateStatus(message, type = 'info') {
+            const status = document.getElementById('status');
+            const timestamp = new Date().toLocaleTimeString();
+            const className = type === 'success' ? 'success' : type === 'warning' ? 'warning' : 'info';
+            status.innerHTML += `<span class="${className}">[${timestamp}] ${message}</span>\n`;
+            status.scrollTop = status.scrollHeight;
+        }
+        
+        function setPersistence() {
+            const testState = {
+                selectedVertical: 'energy',
+                selectedUseCase: 'energy-oilfield-land-lease',
+                selectedUseCaseDetails: {
+                    id: 'energy-oilfield-land-lease',
+                    title: 'Oilfield Land Lease Analysis',
+                    description: 'Analyze and optimize oilfield land lease agreements',
+                    vertical: 'energy',
+                    icon: '🛢️',
+                    color: 'amber'
+                },
+                uploadedData: null,
+                executionHistory: [],
+                currentStep: 'use-case-selected',
+                timestamp: new Date().toISOString()
+            };
+            
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(testState));
+                updateStatus('✅ Test persistence state has been set!', 'success');
+                updateStatus('State details:', 'info');
+                updateStatus(JSON.stringify(testState, null, 2), 'info');
+                updateStatus('\n🎯 Now navigate to Mission Control to see the indicator!', 'warning');
+            } catch (error) {
+                updateStatus(`❌ Error setting persistence: ${error.message}`, 'error');
+            }
+        }
+        
+        function checkPersistence() {
+            try {
+                const state = localStorage.getItem(STORAGE_KEY);
+                if (state) {
+                    const parsed = JSON.parse(state);
+                    updateStatus('📊 Current persisted state:', 'info');
+                    updateStatus(JSON.stringify(parsed, null, 2), 'info');
+                    updateStatus(`✅ Use case selected: ${parsed.selectedUseCase}`, 'success');
+                } else {
+                    updateStatus('⚠️ No persistence state found', 'warning');
+                }
+            } catch (error) {
+                updateStatus(`❌ Error checking persistence: ${error.message}`, 'error');
+            }
+        }
+        
+        function clearPersistence() {
+            try {
+                localStorage.removeItem(STORAGE_KEY);
+                updateStatus('🗑️ Persistence state cleared', 'warning');
+            } catch (error) {
+                updateStatus(`❌ Error clearing persistence: ${error.message}`, 'error');
+            }
+        }
+        
+        function navigateToMissionControl() {
+            updateStatus('🚀 Navigating to Mission Control...', 'info');
+            setTimeout(() => {
+                window.location.href = '/mission-control';
+            }, 500);
+        }
+        
+        // Check initial state on load
+        window.addEventListener('load', () => {
+            updateStatus('🔍 Checking initial state...', 'info');
+            checkPersistence();
+        });
+    </script>
+</body>
+</html>

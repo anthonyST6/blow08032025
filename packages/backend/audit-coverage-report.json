@@ -1,0 +1,88 @@
+{
+  "totalUseCases": 95,
+  "configuredUseCases": 95,
+  "missingConfigurations": [],
+  "coveragePercentage": 100,
+  "verticalBreakdown": {
+    "energy-utilities": {
+      "total": 20,
+      "configured": 20,
+      "missing": []
+    },
+    "healthcare": {
+      "total": 10,
+      "configured": 10,
+      "missing": []
+    },
+    "finance": {
+      "total": 10,
+      "configured": 10,
+      "missing": []
+    },
+    "manufacturing": {
+      "total": 6,
+      "configured": 6,
+      "missing": []
+    },
+    "retail": {
+      "total": 6,
+      "configured": 6,
+      "missing": []
+    },
+    "transportation": {
+      "total": 3,
+      "configured": 3,
+      "missing": []
+    },
+    "education": {
+      "total": 5,
+      "configured": 5,
+      "missing": []
+    },
+    "pharmaceuticals": {
+      "total": 3,
+      "configured": 3,
+      "missing": []
+    },
+    "government": {
+      "total": 7,
+      "configured": 7,
+      "missing": []
+    },
+    "telecommunications": {
+      "total": 6,
+      "configured": 6,
+      "missing": []
+    },
+    "real-estate": {
+      "total": 4,
+      "configured": 4,
+      "missing": []
+    },
+    "agriculture": {
+      "total": 3,
+      "configured": 3,
+      "missing": []
+    },
+    "logistics": {
+      "total": 4,
+      "configured": 4,
+      "missing": []
+    },
+    "hospitality": {
+      "total": 3,
+      "configured": 3,
+      "missing": []
+    },
+    "pharmaceutical": {
+      "total": 1,
+      "configured": 1,
+      "missing": []
+    },
+    "all-verticals": {
+      "total": 4,
+      "configured": 4,
+      "missing": []
+    }
+  }
+}

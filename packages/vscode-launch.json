@@ -1,0 +1,48 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Launch Chrome with Auto Start",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}/packages/frontend",
+      "sourceMaps": true,
+      "sourceMapPathOverrides": {
+        "/@/*": "${webRoot}/src/*"
+      },
+      "preLaunchTask": "Start Dev Server",
+      "postDebugTask": "Stop Dev Server"
+    },
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Launch Chrome (Server Already Running)",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}/packages/frontend",
+      "sourceMaps": true,
+      "sourceMapPathOverrides": {
+        "/@/*": "${webRoot}/src/*"
+      }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Backend",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/packages/backend/src/index.ts",
+      "preLaunchTask": "tsc: build - packages/backend/tsconfig.json",
+      "outFiles": ["${workspaceFolder}/packages/backend/dist/**/*.js"],
+      "env": {
+        "NODE_ENV": "development"
+      }
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Full Stack Debug with Auto Start",
+      "configurations": ["Debug Backend", "Launch Chrome with Auto Start"],
+      "stopAll": true
+    }
+  ]
+}

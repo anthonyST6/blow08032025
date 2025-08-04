@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Control Full Persistence Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #0a0a0a;
+            color: #fff;
+        }
+        .container {
+            background-color: #1a1a1a;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            color: #f59e0b;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #f59e0b;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        button {
+            background-color: #f59e0b;
+            color: #000;
+            border: none;
+            padding: 12px 24px;
+            margin: 10px 5px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.2s;
+        }
+        button:hover {
+            background-color: #d97706;
+            transform: translateY(-1px);
+        }
+        button.secondary {
+            background-color: #374151;
+            color: #fff;
+        }
+        button.secondary:hover {
+            background-color: #4b5563;
+        }
+        button.danger {
+            background-color: #ef4444;
+            color: #fff;
+        }
+        button.danger:hover {
+            background-color: #dc2626;
+        }
+        .status {
+            background-color: #1f2937;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            border: 1px solid #374151;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .success {
+            color: #10b981;
+            font-weight: bold;
+        }
+        .info {
+            color: #3b82f6;
+        }
+        .warning {
+            color: #f59e0b;
+        }
+        .error {
+            color: #ef4444;
+        }
+        .instructions {
+            background-color: #111827;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #f59e0b;
+        }
+        .instructions h3 {
+            color: #f59e0b;
+            margin-top: 0;
+        }
+        .instructions ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .instructions li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        code {
+            background-color: #374151;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .section {
+            background-color: #111827;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #374151;
+        }
+        .highlight {
+            background-color: #f59e0b;
+            color: #000;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Mission Control Full Persistence Test Suite</h1>
+        
+        <div class="instructions">
+            <h3>📋 Test Scenario</h3>
+            <p>This test verifies that Mission Control properly persists and restores:</p>
+            <ol>
+                <li><span class="highlight">Vertical Selection</span> - Energy & Utilities should be highlighted</li>
+                <li><span class="highlight">Use Case Selection</span> - Oilfield Land Lease Management should be selected</li>
+                <li><span class="highlight">Tab Data</span> - Executive Summary, Agents, Integration, Audit, and Output tabs should have data</li>
+                <li><span class="highlight">Visual State</span> - Proper highlighting and focus on return</li>
+            </ol>
+        </div>
+
+        <div class="grid">
+            <div class="section">
+                <h2>🎯 Quick Actions</h2>
+                <button onclick="setFullPersistence()">Set Full Test State</button>
+                <button onclick="setMinimalPersistence()">Set Minimal State</button>
+                <button onclick="checkPersistence()">Check Current State</button>
+                <button onclick="clearPersistence()" class="danger">Clear All</button>
+            </div>
+
+            <div class="section">
+                <h2>🧭 Navigation</h2>
+                <button onclick="navigateToMissionControl()">Go to Mission Control</button>
+                <button onclick="navigateToUseCaseDashboard()">Go to Use Case Dashboard</button>
+                <button onclick="navigateToHome()" class="secondary">Go to Home</button>
+            </div>
+        </div>
+
+        <h2>📊 Current State</h2>
+        <div id="status" class="status"></div>
+
+        <h2>🔧 Advanced Options</h2>
+        <div class="grid">
+            <button onclick="simulateFullWorkflow()">Simulate Full Workflow</button>
+            <button onclick="testRestoreEvent()">Test Restore Event</button>
+            <button onclick="inspectLocalStorage()" class="secondary">Inspect LocalStorage</button>
+            <button onclick="clearLogs()" class="secondary">Clear Logs</button>
+        </div>
+    </div>
+
+    <script>
+        const STORAGE_KEY = 'missionControlState';
+        
+        function updateStatus(message, type = 'info') {
+            const status = document.getElementById('status');
+            const timestamp = new Date().toLocaleTimeString();
+            const className = type === 'success' ? 'success' : 
+                            type === 'warning' ? 'warning' : 
+                            type === 'error' ? 'error' : 'info';
+            status.innerHTML += `<span class="${className}">[${timestamp}] ${message}</span>\n`;
+            status.scrollTop = status.scrollHeight;
+        }
+        
+        function setFullPersistence() {
+            const fullState = {
+                selectedVertical: 'energy',
+                selectedUseCase: 'energy-oilfield-land-lease',
+                selectedUseCaseDetails: {
+                    id: 'energy-oilfield-land-lease',
+                    title: 'Oilfield Land Lease Management',
+                    description: 'Analyze and optimize oilfield land lease agreements',
+                    vertical: 'energy',
+                    icon: '🛢️',
+                    color: 'amber'
+                },
+                uploadedData: {
+                    filename: 'lease_data.csv',
+                    uploadTime: new Date().toISOString(),
+                    records: 1500
+                },
+                executionHistory: [
+                    {
+                        id: '1',
+                        timestamp: new Date().toISOString(),
+                        action: 'Data Analysis Started',
+                        status: 'completed'
+                    },
+                    {
+                        id: '2',
+                        timestamp: new Date().toISOString(),
+                        action: 'Risk Assessment Completed',
+                        status: 'completed'
+                    }
+                ],
+                currentStep: 'analysis-complete',
+                tabData: {
+                    executiveSummary: true,
+                    agentCanvas: true,
+                    workflows: true,
+                    deployment: true,
+                    operations: true,
+                    integrationLog: true,
+                    auditConsole: true,
+                    outputViewer: true
+                },
+                timestamp: new Date().toISOString()
+            };
+            
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(fullState));
+                updateStatus('✅ Full persistence state has been set!', 'success');
+                updateStatus('State includes:', 'info');
+                updateStatus('  • Vertical: Energy & Utilities', 'info');
+                updateStatus('  • Use Case: Oilfield Land Lease Management', 'info');
+                updateStatus('  • Upload Data: lease_data.csv (1500 records)', 'info');
+                updateStatus('  • Execution History: 2 completed actions', 'info');
+                updateStatus('  • All tab data flags set to true', 'info');
+                updateStatus('\n🎯 Now navigate to Mission Control to see full restoration!', 'warning');
+            } catch (error) {
+                updateStatus(`❌ Error setting persistence: ${error.message}`, 'error');
+            }
+        }
+        
+        function setMinimalPersistence() {
+            const minimalState = {
+                selectedVertical: 'energy',
+                selectedUseCase: 'energy-oilfield-land-lease',
+                selectedUseCaseDetails: {
+                    id: 'energy-oilfield-land-lease',
+                    title: 'Oilfield Land Lease Management',
+                    vertical: 'energy'
+                },
+                timestamp: new Date().toISOString()
+            };
+            
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(minimalState));
+                updateStatus('✅ Minimal persistence state has been set!', 'success');
+                updateStatus('Only vertical and use case selection saved.', 'info');
+            } catch (error) {
+                updateStatus(`❌ Error setting persistence: ${error.message}`, 'error');
+            }
+        }
+        
+        function checkPersistence() {
+            try {
+                const state = localStorage.getItem(STORAGE_KEY);
+                if (state) {
+                    const parsed = JSON.parse(state);
+                    updateStatus('📊 Current persisted state:', 'info');
+                    updateStatus(JSON.stringify(parsed, null, 2), 'info');
+                    
+                    // Highlight key information
+                    updateStatus('\n📌 Summary:', 'warning');
+                    updateStatus(`Vertical: ${parsed.selectedVertical || 'None'}`, 'success');
+                    updateStatus(`Use Case: ${parsed.selectedUseCase || 'None'}`, 'success');
+                    updateStatus(`Has Upload Data: ${!!parsed.uploadedData}`, 'info');
+                    updateStatus(`Execution History: ${parsed.executionHistory?.length || 0} items`, 'info');
+                    updateStatus(`Tab Data Available: ${!!parsed.tabData}`, 'info');
+                } else {
+                    updateStatus('⚠️ No persistence state found', 'warning');
+                }
+            } catch (error) {
+                updateStatus(`❌ Error checking persistence: ${error.message}`, 'error');
+            }
+        }
+        
+        function clearPersistence() {
+            try {
+                localStorage.removeItem(STORAGE_KEY);
+                updateStatus('🗑️ Persistence state cleared', 'warning');
+            } catch (error) {
+                updateStatus(`❌ Error clearing persistence: ${error.message}`, 'error');
+            }
+        }
+        
+        function navigateToMissionControl() {
+            updateStatus('🚀 Navigating to Mission Control...', 'info');
+            setTimeout(() => {
+                window.location.href = '/mission-control';
+            }, 500);
+        }
+        
+        function navigateToUseCaseDashboard() {
+            updateStatus('🚀 Navigating to Use Case Dashboard...', 'info');
+            setTimeout(() => {
+                window.location.href = '/mission-control/use-case';
+            }, 500);
+        }
+        
+        function navigateToHome() {
+            updateStatus('🏠 Navigating to Home...', 'info');
+            setTimeout(() => {
+                window.location.href = '/';
+            }, 500);
+        }
+        
+        function simulateFullWorkflow() {
+            updateStatus('🔄 Starting full workflow simulation...', 'warning');
+            
+            // Step 1: Set state
+            updateStatus('Step 1: Setting full persistence state', 'info');
+            setFullPersistence();
+            
+            // Step 2: Navigate
+            setTimeout(() => {
+                updateStatus('Step 2: Navigate to Mission Control in 3 seconds...', 'info');
+                updateStatus('Watch for:', 'warning');
+                updateStatus('  • Energy & Utilities card highlighted', 'info');
+                updateStatus('  • Oilfield Land Lease selected', 'info');
+                updateStatus('  • Tab data loaded', 'info');
+                
+                setTimeout(() => {
+                    navigateToMissionControl();
+                }, 3000);
+            }, 1000);
+        }
+        
+        function testRestoreEvent() {
+            updateStatus('🔧 Emitting restore event...', 'info');
+            
+            const state = localStorage.getItem(STORAGE_KEY);
+            if (!state) {
+                updateStatus('❌ No state to restore. Set state first.', 'error');
+                return;
+            }
+            
+            const parsed = JSON.parse(state);
+            const event = new CustomEvent('missionControlFullRestore', {
+                detail: {
+                    vertical: parsed.selectedVertical,
+                    useCaseId: parsed.selectedUseCase,
+                    useCase: parsed.selectedUseCaseDetails,
+                    uploadedData: parsed.uploadedData,
+                    executionHistory: parsed.executionHistory,
+                    currentStep: parsed.currentStep,
+                    restoreFlags: {
+                        highlightVertical: true,
+                        selectUseCase: true,
+                        loadTabData: true,
+                        scrollToUseCase: true
+                    }
+                },
+                bubbles: true
+            });
+            
+            window.dispatchEvent(event);
+            updateStatus('✅ Restore event emitted!', 'success');
+        }
+        
+        function inspectLocalStorage() {
+            updateStatus('🔍 Inspecting all localStorage keys:', 'info');
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                const value = localStorage.getItem(key);
+                updateStatus(`${key}: ${value?.substring(0, 100)}...`, 'info');
+            }
+        }
+        
+        function clearLogs() {
+            document.getElementById('status').innerHTML = '';
+            updateStatus('📋 Logs cleared', 'info');
+        }
+        
+        // Check initial state on load
+        window.addEventListener('load', () => {
+            updateStatus('🔍 Checking initial state...', 'info');
+            checkPersistence();
+        });
+    </script>
+</body>
+</html>

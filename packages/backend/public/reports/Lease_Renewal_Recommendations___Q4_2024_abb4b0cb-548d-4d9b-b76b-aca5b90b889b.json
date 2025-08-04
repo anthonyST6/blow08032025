@@ -1,0 +1,361 @@
+{
+  "metadata": {
+    "id": "abb4b0cb-548d-4d9b-b76b-aca5b90b889b",
+    "name": "Lease Renewal Recommendations - Q4 2024",
+    "description": "AI-powered recommendations for upcoming lease renewals",
+    "generatedBy": "Vanguard Negotiation Agent",
+    "useCase": "oilfield-lease",
+    "workflowId": "renewal-recommendations",
+    "generatedAt": "2025-08-03T04:19:15.733Z",
+    "version": "1.0"
+  },
+  "summary": {
+    "totalRecords": 1,
+    "dataType": "object"
+  },
+  "data": {
+    "metadata": {
+      "reportDate": "2025-08-03T04:19:15.732Z",
+      "totalLeases": 14,
+      "highPriorityRenewals": 10
+    },
+    "recommendations": [
+      {
+        "leaseId": "LEASE-00003",
+        "leaseName": "ND-Section-23",
+        "recommendation": "Renew - High Priority",
+        "proposedTerms": {
+          "royaltyRate": 0.1450089585425247,
+          "bonusPayment": 1990.5,
+          "term": "3 years"
+        },
+        "rationale": "High-value asset with strong production",
+        "currentMetrics": {
+          "production": {
+            "oil": 1,
+            "gas": 558,
+            "water": 179
+          },
+          "revenue": {
+            "monthly": 42261,
+            "yearly": 1128221,
+            "lifetime": 5095662
+          },
+          "riskScore": 27
+        }
+      },
+      {
+        "leaseId": "LEASE-00009",
+        "leaseName": "CO-Section-21",
+        "recommendation": "Renew - High Priority",
+        "proposedTerms": {
+          "royaltyRate": 0.20859339394080623,
+          "bonusPayment": 6757.5,
+          "term": "5 years"
+        },
+        "rationale": "High-value asset with strong production",
+        "currentMetrics": {
+          "production": {
+            "oil": 244,
+            "gas": 584,
+            "water": 146
+          },
+          "revenue": {
+            "monthly": 93934,
+            "yearly": 1066527,
+            "lifetime": 7173726
+          },
+          "riskScore": 49
+        }
+      },
+      {
+        "leaseId": "LEASE-00018",
+        "leaseName": "CO-Section-2",
+        "recommendation": "Renew - High Priority",
+        "proposedTerms": {
+          "royaltyRate": 0.15244443456230955,
+          "bonusPayment": 7395,
+          "term": "5 years"
+        },
+        "rationale": "High-value asset with strong production",
+        "currentMetrics": {
+          "production": {
+            "oil": 401,
+            "gas": 628,
+            "water": 118
+          },
+          "revenue": {
+            "monthly": 47388,
+            "yearly": 1027792,
+            "lifetime": 4560429
+          },
+          "riskScore": 46
+        }
+      },
+      {
+        "leaseId": "LEASE-00020",
+        "leaseName": "NM-Section-13",
+        "recommendation": "Renew - Standard Terms",
+        "proposedTerms": {
+          "royaltyRate": 0.204994964020714,
+          "bonusPayment": 4370,
+          "term": "3 years"
+        },
+        "rationale": "Moderate performer with stable returns",
+        "currentMetrics": {
+          "production": {
+            "oil": 28,
+            "gas": 287,
+            "water": 176
+          },
+          "revenue": {
+            "monthly": 18771,
+            "yearly": 319318,
+            "lifetime": 10111271
+          },
+          "riskScore": 35
+        }
+      },
+      {
+        "leaseId": "LEASE-00029",
+        "leaseName": "NM-Section-17",
+        "recommendation": "Renew - High Priority",
+        "proposedTerms": {
+          "royaltyRate": 0.14465734906074726,
+          "bonusPayment": 7131,
+          "term": "5 years"
+        },
+        "rationale": "High-value asset with strong production",
+        "currentMetrics": {
+          "production": {
+            "oil": 311,
+            "gas": 95,
+            "water": 127
+          },
+          "revenue": {
+            "monthly": 82487,
+            "yearly": 827256,
+            "lifetime": 3010043
+          },
+          "riskScore": 72
+        }
+      },
+      {
+        "leaseId": "LEASE-00030",
+        "leaseName": "TX-Section-20",
+        "recommendation": "Evaluate for Divestment",
+        "proposedTerms": {
+          "royaltyRate": 0.21088533318975414,
+          "bonusPayment": 3649,
+          "term": "5 years"
+        },
+        "rationale": "Marginal economics, consider alternatives",
+        "currentMetrics": {
+          "production": {
+            "oil": 395,
+            "gas": 646,
+            "water": 159
+          },
+          "revenue": {
+            "monthly": 86745,
+            "yearly": 141011,
+            "lifetime": 7864874
+          },
+          "riskScore": 36
+        }
+      },
+      {
+        "leaseId": "LEASE-00033",
+        "leaseName": "CO-Section-26",
+        "recommendation": "Renew - High Priority",
+        "proposedTerms": {
+          "royaltyRate": 0.18506878737020885,
+          "bonusPayment": 6640.5,
+          "term": "5 years"
+        },
+        "rationale": "High-value asset with strong production",
+        "currentMetrics": {
+          "production": {
+            "oil": 339,
+            "gas": 311,
+            "water": 172
+          },
+          "revenue": {
+            "monthly": 62993,
+            "yearly": 731481,
+            "lifetime": 10593650
+          },
+          "riskScore": 50
+        }
+      },
+      {
+        "leaseId": "LEASE-00034",
+        "leaseName": "CO-Section-15",
+        "recommendation": "Evaluate for Divestment",
+        "proposedTerms": {
+          "royaltyRate": 0.1828836763497256,
+          "bonusPayment": 5981,
+          "term": "3 years"
+        },
+        "rationale": "Marginal economics, consider alternatives",
+        "currentMetrics": {
+          "production": {
+            "oil": 104,
+            "gas": 576,
+            "water": 96
+          },
+          "revenue": {
+            "monthly": 58148,
+            "yearly": 187329,
+            "lifetime": 3855960
+          },
+          "riskScore": 88
+        }
+      },
+      {
+        "leaseId": "LEASE-00035",
+        "leaseName": "NM-Section-26",
+        "recommendation": "Renew - High Priority",
+        "proposedTerms": {
+          "royaltyRate": 0.18983812914901765,
+          "bonusPayment": 8634,
+          "term": "3 years"
+        },
+        "rationale": "High-value asset with strong production",
+        "currentMetrics": {
+          "production": {
+            "oil": 72,
+            "gas": 218,
+            "water": 191
+          },
+          "revenue": {
+            "monthly": 93366,
+            "yearly": 1162314,
+            "lifetime": 8173719
+          },
+          "riskScore": 71
+        }
+      },
+      {
+        "leaseId": "LEASE-00037",
+        "leaseName": "NM-Section-19",
+        "recommendation": "Renew - High Priority",
+        "proposedTerms": {
+          "royaltyRate": 0.18482935194480243,
+          "bonusPayment": 8197.5,
+          "term": "3 years"
+        },
+        "rationale": "High-value asset with strong production",
+        "currentMetrics": {
+          "production": {
+            "oil": 47,
+            "gas": 82,
+            "water": 150
+          },
+          "revenue": {
+            "monthly": 60262,
+            "yearly": 1131660,
+            "lifetime": 8295999
+          },
+          "riskScore": 31
+        }
+      },
+      {
+        "leaseId": "LEASE-00038",
+        "leaseName": "NM-Section-24",
+        "recommendation": "Renew - High Priority",
+        "proposedTerms": {
+          "royaltyRate": 0.16060603110616037,
+          "bonusPayment": 2748,
+          "term": "5 years"
+        },
+        "rationale": "High-value asset with strong production",
+        "currentMetrics": {
+          "production": {
+            "oil": 370,
+            "gas": 542,
+            "water": 9
+          },
+          "revenue": {
+            "monthly": 38172,
+            "yearly": 756449,
+            "lifetime": 4827907
+          },
+          "riskScore": 70
+        }
+      },
+      {
+        "leaseId": "LEASE-00041",
+        "leaseName": "ND-Section-12",
+        "recommendation": "Renew - High Priority",
+        "proposedTerms": {
+          "royaltyRate": 0.20135674492616137,
+          "bonusPayment": 6528,
+          "term": "3 years"
+        },
+        "rationale": "High-value asset with strong production",
+        "currentMetrics": {
+          "production": {
+            "oil": 193,
+            "gas": 452,
+            "water": 19
+          },
+          "revenue": {
+            "monthly": 77533,
+            "yearly": 699490,
+            "lifetime": 2404511
+          },
+          "riskScore": 58
+        }
+      },
+      {
+        "leaseId": "LEASE-00043",
+        "leaseName": "ND-Section-9",
+        "recommendation": "Renew - High Priority",
+        "proposedTerms": {
+          "royaltyRate": 0.18640415155820642,
+          "bonusPayment": 4494,
+          "term": "3 years"
+        },
+        "rationale": "High-value asset with strong production",
+        "currentMetrics": {
+          "production": {
+            "oil": 188,
+            "gas": 390,
+            "water": 109
+          },
+          "revenue": {
+            "monthly": 55266,
+            "yearly": 1055238,
+            "lifetime": 4674632
+          },
+          "riskScore": 73
+        }
+      },
+      {
+        "leaseId": "LEASE-00049",
+        "leaseName": "CO-Section-25",
+        "recommendation": "Renew - Standard Terms",
+        "proposedTerms": {
+          "royaltyRate": 0.21440019515300618,
+          "bonusPayment": 2525,
+          "term": "3 years"
+        },
+        "rationale": "Moderate performer with stable returns",
+        "currentMetrics": {
+          "production": {
+            "oil": 141,
+            "gas": 950,
+            "water": 44
+          },
+          "revenue": {
+            "monthly": 64293,
+            "yearly": 455383,
+            "lifetime": 7247769
+          },
+          "riskScore": 65
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seraphim Vanguards - Platform Resources</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Brand CSS -->
+    <link rel="stylesheet" href="/assets/css/seraphim-brand.css">
+    
+    <style>
+        /* Page-specific styles */
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+            padding: 3rem 0;
+            background: linear-gradient(180deg, var(--seraphim-ethereal) 0%, var(--seraphim-obsidian) 100%);
+        }
+        
+        .vanguard-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .vanguard-icon {
+            width: 64px;
+            height: 64px;
+            opacity: 0.8;
+            transition: all var(--transition-base);
+        }
+        
+        .vanguard-icon:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        
+        .quick-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        
+        .quick-link {
+            padding: var(--space-sm) var(--space-lg);
+            background: var(--seraphim-ethereal);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            color: var(--seraphim-celestial);
+            transition: all var(--transition-base);
+            font-weight: 500;
+        }
+        
+        .quick-link:hover {
+            border-color: var(--seraphim-gold);
+            color: var(--seraphim-gold);
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+        
+        .section {
+            background: var(--seraphim-ethereal);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            padding: var(--space-2xl);
+            margin-bottom: var(--space-xl);
+        }
+        
+        .section h2 {
+            color: var(--seraphim-gold);
+            margin-bottom: var(--space-xl);
+            font-family: var(--font-heading);
+        }
+        
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--space-lg);
+        }
+        
+        .resource-card {
+            background: var(--seraphim-obsidian);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            padding: var(--space-lg);
+            transition: all var(--transition-base);
+        }
+        
+        .resource-card:hover {
+            border-color: var(--seraphim-gold);
+            box-shadow: var(--glow-gold);
+            transform: translateY(-4px);
+        }
+        
+        .resource-card h3 {
+            color: var(--seraphim-gold);
+            font-family: var(--font-heading);
+            font-size: 1.125rem;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .resource-card p {
+            color: var(--color-muted);
+            font-size: 0.875rem;
+            margin-bottom: var(--space-md);
+        }
+        
+        .resource-link {
+            display: inline-block;
+            padding: var(--space-sm) var(--space-lg);
+            background: linear-gradient(135deg, var(--seraphim-gold) 0%, var(--seraphim-gold-light) 100%);
+            color: var(--seraphim-obsidian);
+            text-decoration: none;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all var(--transition-base);
+        }
+        
+        .resource-link:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--glow-gold-intense);
+            text-decoration: none;
+        }
+        
+        .status {
+            display: inline-block;
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: var(--space-sm);
+        }
+        
+        .status.live {
+            background: var(--vanguard-accuracy);
+            color: white;
+        }
+        
+        .status.development {
+            background: var(--vanguard-security);
+            color: white;
+        }
+        
+        .status.coming-soon {
+            background: var(--color-muted);
+            color: white;
+        }
+        
+        .info-box {
+            background: var(--seraphim-ethereal);
+            border-left: 4px solid var(--seraphim-gold);
+            padding: var(--space-lg);
+            margin: var(--space-lg) 0;
+            border-radius: var(--radius-sm);
+        }
+        
+        .info-box h4 {
+            color: var(--seraphim-gold);
+            font-family: var(--font-heading);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .info-box p {
+            color: var(--color-muted);
+        }
+        
+        code {
+            background: var(--seraphim-ethereal);
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-mono);
+            font-size: 0.875em;
+            color: var(--seraphim-gold);
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-to-content">Skip to main content</a>
+    
+    <header class="seraphim-header">
+        <div class="seraphim-logo">
+            <img src="/assets/Seraphim Vanguards Logo.png" alt="Seraphim Vanguards">
+            <span class="seraphim-wordmark">Seraphim Vanguards</span>
+        </div>
+        <div class="trinity-display">
+            <span class="trinity-item trinity-security">Security</span>
+            <span class="trinity-item trinity-integrity">Integrity</span>
+            <span class="trinity-item trinity-accuracy">Accuracy</span>
+        </div>
+    </header>
+    
+    <div class="hero-section">
+        <div class="container text-center">
+            <h1 class="h1 mb-lg">Platform Resources</h1>
+            <p class="body-large text-muted mb-xl">Central hub for all Seraphim Vanguards development resources</p>
+            
+            <div class="vanguard-icons">
+                <img src="/assets/icons/vanguard-security.svg" alt="Security Vanguard" class="vanguard-icon celestial-float">
+                <img src="/assets/icons/vanguard-integrity.svg" alt="Integrity Vanguard" class="vanguard-icon celestial-float" style="animation-delay: 0.5s;">
+                <img src="/assets/icons/vanguard-accuracy.svg" alt="Accuracy Vanguard" class="vanguard-icon celestial-float" style="animation-delay: 1s;">
+            </div>
+        </div>
+    </div>
+    
+    <main id="main" class="seraphim-main">
+        <div class="container">
+        
+            <div class="quick-links">
+                <a href="/preview/" class="quick-link">📄 Preview Pages</a>
+                <a href="#environments" class="quick-link">🌐 Environments</a>
+                <a href="#documentation" class="quick-link">📚 Documentation</a>
+                <a href="#development" class="quick-link">💻 Development</a>
+                <a href="#deployment" class="quick-link">🚀 Deployment</a>
+                <a href="/brand/SERAPHIM_BRAND_STYLE_GUIDE.md" class="quick-link">🎨 Brand Guide</a>
+            </div>
+            
+            <div class="section" id="environments">
+                <h2 class="h2">🌐 Platform Environments</h2>
+                <div class="seraphim-grid seraphim-grid-2">
+                    <div class="card">
+                        <h3 class="h4">Local Development</h3>
+                        <p class="body-base">Run the platform locally for development and testing</p>
+                        <a href="http://localhost:5173" class="btn btn-primary">Frontend (Port 5173)</a>
+                        <span class="badge badge-security">Development</span>
+                    </div>
+                    
+                    <div class="card">
+                        <h3 class="h4">Backend API</h3>
+                        <p class="body-base">RESTful API and WebSocket services</p>
+                        <a href="http://localhost:3000" class="btn btn-primary">API (Port 3000)</a>
+                        <span class="badge badge-security">Development</span>
+                    </div>
+                    
+                    <div class="card">
+                        <h3 class="h4">Preview Server</h3>
+                        <p class="body-base">Static preview pages for all platform screens</p>
+                        <a href="http://localhost:8080/preview/" class="btn btn-primary">Preview Pages</a>
+                        <span class="badge badge-accuracy">Live</span>
+                    </div>
+                    
+                    <div class="card">
+                        <h3 class="h4">Production Environment</h3>
+                        <p class="body-base">Live production deployment</p>
+                        <a href="#" class="btn btn-primary">Coming Soon</a>
+                        <span class="badge">Coming Soon</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section mt-xl" id="documentation">
+                <h2 class="h2">📚 Documentation</h2>
+                <div class="seraphim-grid seraphim-grid-3">
+                    <div class="card card-security">
+                        <h3 class="h4 text-security">Quick Start Guide</h3>
+                        <p class="body-base">Get up and running with Seraphim Vanguards</p>
+                        <a href="/QUICK_START.md" class="btn btn-security">View Guide</a>
+                    </div>
+                    
+                    <div class="card card-integrity">
+                        <h3 class="h4 text-integrity">Project Summary</h3>
+                        <p class="body-base">Overview of the platform architecture and features</p>
+                        <a href="/PROJECT_SUMMARY.md" class="btn btn-integrity">Read Summary</a>
+                    </div>
+                    
+                    <div class="card card-accuracy">
+                        <h3 class="h4 text-accuracy">Deployment Guide</h3>
+                        <p class="body-base">Instructions for deploying to production</p>
+                        <a href="/DEPLOYMENT.md" class="btn btn-accuracy">Deployment Docs</a>
+                    </div>
+                    
+                    <div class="card">
+                        <h3 class="h4">API Documentation</h3>
+                        <p class="body-base">Swagger/OpenAPI documentation</p>
+                        <a href="http://localhost:3000/api-docs" class="btn btn-primary">API Docs</a>
+                        <span class="badge badge-security">When Backend Running</span>
+                    </div>
+                    
+                    <div class="card">
+                        <h3 class="h4">Brand Guidelines</h3>
+                        <p class="body-base">Visual identity and implementation guide</p>
+                        <a href="/brand/IMPLEMENTATION_GUIDE.md" class="btn btn-primary">Implementation Guide</a>
+                        <span class="badge badge-accuracy">New</span>
+                    </div>
+                    
+                    <div class="card">
+                        <h3 class="h4">Visual Brand Guide</h3>
+                        <p class="body-base">Component examples and visual patterns</p>
+                        <a href="/brand/VISUAL_BRAND_GUIDE.md" class="btn btn-primary">Visual Guide</a>
+                        <span class="badge badge-accuracy">New</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section mt-xl" id="development">
+                <h2 class="h2">💻 Development Tools</h2>
+                <div class="info-box mb-xl">
+                    <h4>Start Development Servers</h4>
+                    <p>Run these commands from the project root:</p>
+                </div>
+                
+                <div class="seraphim-grid seraphim-grid-2">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="h4">Frontend Development</h3>
+                            <span class="badge badge-security">React + Vite</span>
+                        </div>
+                        <p class="body-base mb-md">Start the Vite development server</p>
+                        <code class="d-block mb-md">cd packages/frontend && npm run dev</code>
+                        <a href="http://localhost:5173" class="btn btn-security">Open Frontend</a>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="h4">Backend Development</h3>
+                            <span class="badge badge-integrity">Express + TypeScript</span>
+                        </div>
+                        <p class="body-base mb-md">Start the Express API server</p>
+                        <code class="d-block mb-md">cd packages/backend && npm run dev</code>
+                        <a href="http://localhost:3000" class="btn btn-integrity">Open API</a>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="h4">Preview Server</h3>
+                            <span class="badge badge-accuracy">Static Server</span>
+                        </div>
+                        <p class="body-base mb-md">Serve static preview pages</p>
+                        <code class="d-block mb-md">cd packages/public && node serve.js</code>
+                        <a href="http://localhost:8080" class="btn btn-accuracy">Open Preview</a>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="h4">Full Stack</h3>
+                            <span class="badge">All Services</span>
+                        </div>
+                        <p class="body-base mb-md">Run all services concurrently</p>
+                        <code class="d-block mb-md">npm run dev</code>
+                        <span class="badge">Configure in root package.json</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section mt-xl" id="deployment">
+                <h2 class="h2">🚀 Deployment Resources</h2>
+                <div class="seraphim-grid seraphim-grid-2">
+                    <div class="card">
+                        <h3 class="h4">Docker Compose</h3>
+                        <p class="body-base mb-md">Multi-container deployment configuration</p>
+                        <code class="d-block mb-md">docker-compose up -d</code>
+                        <span class="badge badge-security">Docker</span>
+                    </div>
+                    
+                    <div class="card">
+                        <h3 class="h4">Production Build</h3>
+                        <p class="body-base mb-md">Build for production deployment</p>
+                        <code class="d-block mb-md">npm run build</code>
+                        <span class="badge badge-integrity">Build</span>
+                    </div>
+                    
+                    <div class="card">
+                        <h3 class="h4">Environment Variables</h3>
+                        <p class="body-base mb-md">Configure environment settings</p>
+                        <a href="/packages/backend/.env.example" class="btn btn-primary">Backend .env</a>
+                    </div>
+                    
+                    <div class="card">
+                        <h3 class="h4">Monitoring</h3>
+                        <p class="body-base mb-md">Prometheus & Grafana monitoring</p>
+                        <a href="http://localhost:3001/metrics" class="btn btn-primary">Metrics</a>
+                        <span class="badge badge-security">When Running</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section mt-xl">
+                <h2 class="h2">🔧 Additional Resources</h2>
+                <div class="seraphim-grid seraphim-grid-3">
+                    <div class="card">
+                        <h3 class="h4">GitHub Repository</h3>
+                        <p class="body-base">Source code and issue tracking</p>
+                        <a href="#" class="btn btn-primary">View on GitHub</a>
+                        <span class="badge">Configure URL</span>
+                    </div>
+                    
+                    <div class="card">
+                        <h3 class="h4">CI/CD Pipeline</h3>
+                        <p class="body-base">Automated testing and deployment</p>
+                        <a href="#" class="btn btn-primary">Pipeline Status</a>
+                        <span class="badge">Coming Soon</span>
+                    </div>
+                    
+                    <div class="card">
+                        <h3 class="h4">Team Resources</h3>
+                        <p class="body-base">Internal documentation and tools</p>
+                        <a href="#" class="btn btn-primary">Team Portal</a>
+                        <span class="badge">Coming Soon</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-box mt-2xl">
+                <h4>Need Help?</h4>
+                <p>Check the documentation or reach out to the development team for assistance.</p>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="seraphim-footer">
+        <img src="/assets/Seraphim Logo.png" alt="Seraphim" class="footer-logo glow-pulse">
+        <p class="caption">© 2024 Seraphim Vanguards. All rights reserved.</p>
+    </footer>
+    
+    <!-- Brand JavaScript -->
+    <script src="/assets/js/seraphim-brand.js"></script>
+</body>
+</html>

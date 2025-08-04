@@ -1,0 +1,11 @@
+lease_id,property_name,location,lease_type,start_date,expiration_date,annual_rent,royalty_rate,status,operator,acreage
+L001,Eagle Ridge Field,Permian Basin TX,Mineral Rights,2020-01-15,2025-01-15,125000,0.1875,Active,Devon Energy,2500
+L002,Thunder Valley Unit,Bakken ND,Surface Access,2019-06-01,2024-06-01,85000,0.125,Expiring Soon,Continental Resources,1800
+L003,Sunset Creek Prospect,Eagle Ford TX,Combined,2021-03-10,2026-03-10,195000,0.2,Active,EOG Resources,3200
+L004,Prairie Wind Section,Marcellus PA,Mineral Rights,2018-11-20,2023-11-20,110000,0.15,Expired,Chesapeake Energy,2100
+L005,Canyon Deep Wells,Permian Basin TX,Mineral Rights,2022-02-28,2027-02-28,275000,0.225,Active,Pioneer Natural Resources,4500
+L006,North Ridge Extension,Haynesville LA,Surface Access,2020-08-15,2025-08-15,65000,0.1,Active,Southwestern Energy,1200
+L007,Silver Lake Block,Utica OH,Combined,2019-12-01,2024-12-01,180000,0.1875,Expiring Soon,Antero Resources,2800
+L008,Desert Rose Field,Permian Basin TX,Mineral Rights,2021-07-20,2026-07-20,320000,0.25,Active,Occidental Petroleum,5200
+L009,Mountain View Tract,Niobrara CO,Surface Access,2020-04-10,2025-04-10,95000,0.125,Active,Noble Energy,1600
+L010,Riverside Unit,Eagle Ford TX,Combined,2018-09-05,2023-09-05,145000,0.175,Expired,Marathon Oil,2400

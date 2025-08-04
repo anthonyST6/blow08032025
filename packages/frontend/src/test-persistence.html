@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Control Persistence Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+        .section {
+            background-color: #2a2a2a;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #444;
+        }
+        button {
+            background-color: #f59e0b;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #d97706;
+        }
+        .status {
+            background-color: #374151;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .success {
+            color: #10b981;
+        }
+        .error {
+            color: #ef4444;
+        }
+        h1, h2 {
+            color: #f59e0b;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mission Control Persistence Test</h1>
+    
+    <div class="section">
+        <h2>Test Persistence Operations</h2>
+        <button onclick="testSaveState()">Save Test State</button>
+        <button onclick="testLoadState()">Load State</button>
+        <button onclick="testClearState()">Clear State</button>
+        <button onclick="testRestoreEvent()">Test Restore Event</button>
+        <div id="status" class="status"></div>
+    </div>
+
+    <div class="section">
+        <h2>Current Persisted State</h2>
+        <div id="currentState" class="status"></div>
+    </div>
+
+    <script>
+        const STORAGE_KEY = 'missionControlState';
+        
+        function updateStatus(message, isError = false) {
+            const status = document.getElementById('status');
+            status.textContent = message;
+            status.className = 'status ' + (isError ? 'error' : 'success');
+        }
+        
+        function displayCurrentState() {
+            const currentState = document.getElementById('currentState');
+            const state = localStorage.getItem(STORAGE_KEY);
+            
+            if (state) {
+                try {
+                    const parsed = JSON.parse(state);
+                    currentState.textContent = JSON.stringify(parsed, null, 2);
+                    currentState.className = 'status success';
+                } catch (e) {
+                    currentState.textContent = 'Invalid JSON in storage';
+                    currentState.className = 'status error';
+                }
+            } else {
+                currentState.textContent = 'No persisted state found';
+                currentState.className = 'status';
+            }
+        }
+        
+        function testSaveState() {
+            const testState = {
+                selectedVertical: 'energy',
+                selectedUseCase: 'energy-oilfield-land-lease',
+                selectedUseCaseDetails: {
+                    id: 'energy-oilfield-land-lease',
+                    title: 'Oilfield Land Lease Analysis',
+                    description: 'Analyze and optimize oilfield land lease agreements',
+                    vertical: 'energy'
+                },
+                uploadedData: null,
+                executionHistory: [],
+                currentStep: 'use-case-selected',
+                timestamp: new Date().toISOString()
+            };
+            
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(testState));
+                updateStatus('✓ Test state saved successfully!');
+                displayCurrentState();
+                
+                // Emit storage event for other tabs/windows
+                window.dispatchEvent(new StorageEvent('storage', {
+                    key: STORAGE_KEY,
+                    newValue: JSON.stringify(testState),
+                    url: window.location.href
+                }));
+            } catch (e) {
+                updateStatus('✗ Error saving state: ' + e.message, true);
+            }
+        }
+        
+        function testLoadState() {
+            try {
+                const state = localStorage.getItem(STORAGE_KEY);
+                if (state) {
+                    const parsed = JSON.parse(state);
+                    updateStatus('✓ State loaded successfully! Use case: ' + parsed.selectedUseCase);
+                } else {
+                    updateStatus('✗ No state found in storage', true);
+                }
+                displayCurrentState();
+            } catch (e) {
+                updateStatus('✗ Error loading state: ' + e.message, true);
+            }
+        }
+        
+        function testClearState() {
+            try {
+                localStorage.removeItem(STORAGE_KEY);
+                updateStatus('✓ State cleared successfully!');
+                displayCurrentState();
+                
+                // Emit storage event for other tabs/windows
+                window.dispatchEvent(new StorageEvent('storage', {
+                    key: STORAGE_KEY,
+                    newValue: null,
+                    url: window.location.href
+                }));
+            } catch (e) {
+                updateStatus('✗ Error clearing state: ' + e.message, true);
+            }
+        }
+        
+        function testRestoreEvent() {
+            const state = localStorage.getItem(STORAGE_KEY);
+            if (!state) {
+                updateStatus('✗ No state to restore. Save a test state first.', true);
+                return;
+            }
+            
+            try {
+                // Emit custom restore event
+                const event = new CustomEvent('missionControlRestore', {
+                    detail: JSON.parse(state)
+                });
+                window.dispatchEvent(event);
+                updateStatus('✓ Restore event emitted! Check console for listeners.');
+                
+                // Also log to console
+                console.log('Restore event emitted with state:', JSON.parse(state));
+            } catch (e) {
+                updateStatus('✗ Error emitting restore event: ' + e.message, true);
+            }
+        }
+        
+        // Listen for storage events
+        window.addEventListener('storage', (e) => {
+            if (e.key === STORAGE_KEY) {
+                console.log('Storage event detected:', e);
+                displayCurrentState();
+            }
+        });
+        
+        // Listen for restore events
+        window.addEventListener('missionControlRestore', (e) => {
+            console.log('Mission Control restore event received:', e.detail);
+        });
+        
+        // Initial display
+        displayCurrentState();
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "data": [
+    {"id": 1, "timestamp": "2024-01-15T08:00:00Z", "value": 85.2, "status": "active", "category": "operational", "confidence_score": 0.95, "anomaly_score": 0.02},
+    {"id": 2, "timestamp": "2024-01-15T08:15:00Z", "value": 87.5, "status": "active", "category": "operational", "confidence_score": 0.94, "anomaly_score": 0.03},
+    {"id": 3, "timestamp": "2024-01-15T08:30:00Z", "value": 82.1, "status": "active", "category": "operational", "confidence_score": 0.96, "anomaly_score": 0.01},
+    {"id": 4, "timestamp": "2024-01-15T08:45:00Z", "value": 89.3, "status": "active", "category": "operational", "confidence_score": 0.93, "anomaly_score": 0.04},
+    {"id": 5, "timestamp": "2024-01-15T09:00:00Z", "value": 91.7, "status": "warning", "category": "maintenance", "confidence_score": 0.88, "anomaly_score": 0.12},
+    {"id": 6, "timestamp": "2024-01-15T09:15:00Z", "value": 86.4, "status": "active", "category": "operational", "confidence_score": 0.95, "anomaly_score": 0.02},
+    {"id": 7, "timestamp": "2024-01-15T09:30:00Z", "value": 88.9, "status": "active", "category": "operational", "confidence_score": 0.94, "anomaly_score": 0.03},
+    {"id": 8, "timestamp": "2024-01-15T09:45:00Z", "value": 83.6, "status": "active", "category": "operational", "confidence_score": 0.96, "anomaly_score": 0.01},
+    {"id": 9, "timestamp": "2024-01-15T10:00:00Z", "value": 90.2, "status": "active", "category": "operational", "confidence_score": 0.93, "anomaly_score": 0.04},
+    {"id": 10, "timestamp": "2024-01-15T10:15:00Z", "value": 92.8, "status": "warning", "category": "maintenance", "confidence_score": 0.87, "anomaly_score": 0.13}
+  ],
+  "metadata": {
+    "total_records": 100,
+    "data_source": "sensor_network",
+    "collection_period": "24_hours",
+    "average_confidence": 0.93,
+    "anomaly_rate": 0.05
+  }
+}

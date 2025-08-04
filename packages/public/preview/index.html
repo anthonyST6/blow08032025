@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seraphim Vanguards - Preview Pages</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Brand CSS -->
+    <link rel="stylesheet" href="/assets/css/seraphim-brand.css">
+    
+    <style>
+        /* Page-specific styles */
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+            padding: 3rem 0;
+            background: linear-gradient(180deg, var(--seraphim-ethereal) 0%, var(--seraphim-obsidian) 100%);
+            margin-bottom: var(--space-2xl);
+        }
+        
+        .sections {
+            display: grid;
+            gap: var(--space-xl);
+        }
+        
+        .section {
+            background: var(--seraphim-ethereal);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            padding: var(--space-xl);
+        }
+        
+        .section h2 {
+            color: var(--seraphim-gold);
+            font-family: var(--font-heading);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .pages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: var(--space-md);
+        }
+        
+        .page-link {
+            display: block;
+            padding: var(--space-lg);
+            background: var(--seraphim-obsidian);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            color: var(--seraphim-celestial);
+            transition: all var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-link:hover {
+            border-color: var(--seraphim-gold);
+            box-shadow: var(--glow-gold);
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+        
+        .page-link h3 {
+            color: var(--seraphim-gold);
+            font-family: var(--font-heading);
+            font-size: 1.125rem;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .page-link p {
+            color: var(--color-muted);
+            font-size: 0.875rem;
+            margin-bottom: var(--space-sm);
+        }
+        
+        /* Custom badge colors for different sections */
+        .badge.auth { background: var(--vanguard-security); }
+        .badge.admin { background: var(--vanguard-integrity); }
+        .badge.compliance { background: var(--vanguard-accuracy); }
+        .badge.risk { background: #d97706; }
+        .badge.agent { background: #7c3aed; }
+        .badge.workflow { background: #0891b2; }
+        .badge.audit { background: #be185d; }
+        .badge.analytics { background: #0d9488; }
+        
+        .quick-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            justify-content: center;
+            margin-bottom: var(--space-2xl);
+        }
+        
+        .quick-nav a {
+            padding: var(--space-sm) var(--space-lg);
+            background: var(--seraphim-ethereal);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-sm);
+            color: var(--seraphim-celestial);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all var(--transition-base);
+        }
+        
+        .quick-nav a:hover {
+            border-color: var(--seraphim-gold);
+            color: var(--seraphim-gold);
+            transform: translateY(-2px);
+        }
+        
+        .vanguard-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .vanguard-icon {
+            width: 48px;
+            height: 48px;
+            opacity: 0.8;
+            transition: all var(--transition-base);
+        }
+        
+        .vanguard-icon:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-to-content">Skip to main content</a>
+    
+    <header class="seraphim-header">
+        <div class="seraphim-logo">
+            <img src="/assets/Seraphim Vanguards Logo.png" alt="Seraphim Vanguards">
+            <span class="seraphim-wordmark">Preview Pages</span>
+        </div>
+        <div class="trinity-display">
+            <span class="trinity-item trinity-security">Security</span>
+            <span class="trinity-item trinity-integrity">Integrity</span>
+            <span class="trinity-item trinity-accuracy">Accuracy</span>
+        </div>
+    </header>
+    
+    <div class="hero-section">
+        <div class="container text-center">
+            <h1 class="h1 mb-lg">Platform Preview Pages</h1>
+            <p class="body-large text-muted mb-xl">Explore all Seraphim Vanguards platform screens and interfaces</p>
+            
+            <div class="vanguard-icons">
+                <img src="/assets/icons/vanguard-security.svg" alt="Security Vanguard" class="vanguard-icon celestial-float">
+                <img src="/assets/icons/vanguard-integrity.svg" alt="Integrity Vanguard" class="vanguard-icon celestial-float" style="animation-delay: 0.5s;">
+                <img src="/assets/icons/vanguard-accuracy.svg" alt="Accuracy Vanguard" class="vanguard-icon celestial-float" style="animation-delay: 1s;">
+            </div>
+        </div>
+    </div>
+    
+    <main id="main" class="seraphim-main">
+        <div class="container">
+            <nav class="quick-nav">
+                <a href="#auth">Authentication</a>
+                <a href="#dashboards">Dashboards</a>
+                <a href="#agents">Agent Management</a>
+                <a href="#compliance">Compliance & Risk</a>
+                <a href="#workflows">Workflows</a>
+                <a href="#audit">Audit & Analytics</a>
+                <a href="#admin">Administration</a>
+                <a href="/platform/">Platform Home</a>
+                <a href="/brand/showcase.html">Brand Showcase</a>
+            </nav>
+        
+            <div class="sections">
+                <div class="section" id="auth">
+                    <h2 class="h2">🔐 Authentication & User Management</h2>
+                <div class="pages-grid">
+                    <a href="login.html" class="page-link">
+                        <h3>Login</h3>
+                        <p>Secure authentication portal</p>
+                        <span class="badge auth">Auth</span>
+                    </a>
+                    <a href="register.html" class="page-link">
+                        <h3>Register</h3>
+                        <p>New user registration</p>
+                        <span class="badge auth">Auth</span>
+                    </a>
+                    <a href="forgot-password.html" class="page-link">
+                        <h3>Forgot Password</h3>
+                        <p>Password recovery</p>
+                        <span class="badge auth">Auth</span>
+                    </a>
+                    <a href="profile.html" class="page-link">
+                        <h3>Profile</h3>
+                        <p>User profile management</p>
+                        <span class="badge auth">Auth</span>
+                    </a>
+                </div>
+            </div>
+            
+                <div class="section mt-xl" id="dashboards">
+                    <h2 class="h2">📊 Dashboards</h2>
+                <div class="pages-grid">
+                    <a href="dashboard.html" class="page-link">
+                        <h3>Main Dashboard</h3>
+                        <p>Mission Control overview</p>
+                        <span class="badge">Core</span>
+                    </a>
+                    <a href="admin-dashboard.html" class="page-link">
+                        <h3>Admin Dashboard</h3>
+                        <p>System administration</p>
+                        <span class="badge admin">Admin</span>
+                    </a>
+                    <a href="compliance-reviewer-dashboard.html" class="page-link">
+                        <h3>Compliance Dashboard</h3>
+                        <p>Compliance officer view</p>
+                        <span class="badge compliance">Compliance</span>
+                    </a>
+                    <a href="risk-officer-dashboard.html" class="page-link">
+                        <h3>Risk Officer Dashboard</h3>
+                        <p>Risk management overview</p>
+                        <span class="badge risk">Risk</span>
+                    </a>
+                </div>
+            </div>
+            
+                <div class="section mt-xl" id="agents">
+                    <h2 class="h2">🤖 Agent Management</h2>
+                    <div class="pages-grid">
+                        <a href="agent-management.html" class="page-link">
+                            <h3>Agent Management</h3>
+                            <p>Configure Vanguard agents</p>
+                            <span class="badge agent">Agent</span>
+                        </a>
+                        <a href="agent-orchestration.html" class="page-link">
+                            <h3>Agent Orchestration</h3>
+                            <p>Orchestrate agent workflows</p>
+                            <span class="badge agent">Agent</span>
+                        </a>
+                        <a href="agent-detail.html" class="page-link">
+                            <h3>Agent Detail</h3>
+                            <p>Individual agent view</p>
+                            <span class="badge agent">Agent</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="section mt-xl" id="compliance">
+                    <h2 class="h2">✅ Compliance & Risk</h2>
+                    <div class="pages-grid">
+                        <a href="compliance-reports.html" class="page-link">
+                            <h3>Compliance Reports</h3>
+                            <p>View compliance reports</p>
+                            <span class="badge compliance">Compliance</span>
+                        </a>
+                        <a href="compliance-policies.html" class="page-link">
+                            <h3>Compliance Policies</h3>
+                            <p>Manage policies</p>
+                            <span class="badge compliance">Compliance</span>
+                        </a>
+                        <a href="compliance-reviews.html" class="page-link">
+                            <h3>Compliance Reviews</h3>
+                            <p>Review submissions</p>
+                            <span class="badge compliance">Compliance</span>
+                        </a>
+                        <a href="risk-analytics.html" class="page-link">
+                            <h3>Risk Analytics</h3>
+                            <p>Risk analysis dashboard</p>
+                            <span class="badge risk">Risk</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="section mt-xl" id="workflows">
+                    <h2 class="h2">⚡ Workflows & Prompts</h2>
+                    <div class="pages-grid">
+                        <a href="workflow-builder.html" class="page-link">
+                            <h3>Workflow Builder</h3>
+                            <p>Create AI workflows</p>
+                            <span class="badge workflow">Workflow</span>
+                        </a>
+                        <a href="workflow-list.html" class="page-link">
+                            <h3>Workflow List</h3>
+                            <p>Manage workflows</p>
+                            <span class="badge workflow">Workflow</span>
+                        </a>
+                        <a href="prompt-engineering.html" class="page-link">
+                            <h3>Prompt Engineering</h3>
+                            <p>Design and test prompts</p>
+                            <span class="badge workflow">Workflow</span>
+                        </a>
+                        <a href="prompt-list.html" class="page-link">
+                            <h3>Prompt Library</h3>
+                            <p>Browse prompt templates</p>
+                            <span class="badge workflow">Workflow</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="section mt-xl" id="audit">
+                    <h2 class="h2">📊 Audit & Analytics</h2>
+                    <div class="pages-grid">
+                        <a href="audit-console.html" class="page-link">
+                            <h3>Audit Console</h3>
+                            <p>System audit interface</p>
+                            <span class="badge audit">Audit</span>
+                        </a>
+                        <a href="audit-logs.html" class="page-link">
+                            <h3>Audit Logs</h3>
+                            <p>View system logs</p>
+                            <span class="badge audit">Audit</span>
+                        </a>
+                        <a href="analytics.html" class="page-link">
+                            <h3>Analytics</h3>
+                            <p>System analytics</p>
+                            <span class="badge analytics">Analytics</span>
+                        </a>
+                        <a href="compliance-analytics.html" class="page-link">
+                            <h3>Compliance Analytics</h3>
+                            <p>Compliance metrics</p>
+                            <span class="badge analytics">Analytics</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="section mt-xl" id="admin">
+                    <h2 class="h2">⚙️ Administration</h2>
+                    <div class="pages-grid">
+                        <a href="user-management.html" class="page-link">
+                            <h3>User Management</h3>
+                            <p>Manage system users</p>
+                            <span class="badge admin">Admin</span>
+                        </a>
+                        <a href="settings.html" class="page-link">
+                            <h3>Settings</h3>
+                            <p>User settings</p>
+                            <span class="badge">Core</span>
+                        </a>
+                        <a href="settings-admin.html" class="page-link">
+                            <h3>Admin Settings</h3>
+                            <p>System configuration</p>
+                            <span class="badge admin">Admin</span>
+                        </a>
+                        <a href="notification-center.html" class="page-link">
+                            <h3>Notifications</h3>
+                            <p>System notifications</p>
+                            <span class="badge">Core</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="section mt-xl">
+                    <h2 class="h2">🚀 Additional Features</h2>
+                    <div class="pages-grid">
+                        <a href="use-case-launcher.html" class="page-link">
+                            <h3>Use Case Launcher</h3>
+                            <p>Launch AI use cases</p>
+                            <span class="badge">Core</span>
+                        </a>
+                        <a href="output-viewer.html" class="page-link">
+                            <h3>Output Viewer</h3>
+                            <p>View AI outputs</p>
+                            <span class="badge">Core</span>
+                        </a>
+                        <a href="help.html" class="page-link">
+                            <h3>Help Center</h3>
+                            <p>Documentation & support</p>
+                            <span class="badge">Core</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="seraphim-footer">
+        <img src="/assets/Seraphim Logo.png" alt="Seraphim" class="footer-logo glow-pulse">
+        <p class="caption">© 2024 Seraphim Vanguards. All rights reserved.</p>
+    </footer>
+    
+    <!-- Brand JavaScript -->
+    <script src="/assets/js/seraphim-brand.js"></script>
+</body>
+</html>

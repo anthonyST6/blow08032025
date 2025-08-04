@@ -1,0 +1,62 @@
+/* Mission Control Button Layout Styles */
+
+/* Target the container with Upload Data and Start Deployment buttons */
+.flex.items-center.justify-between:has(button:contains("Upload Data")) {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  gap: 1rem !important;
+}
+
+/* Style the Upload Data button */
+button:has-text("Upload Data") {
+  margin-right: auto !important;
+}
+
+/* Style the Start Deployment button - move it left */
+button:has-text("Start Deployment") {
+  margin-left: 0 !important;
+  margin-right: 1rem !important;
+}
+
+/* Clear Use Case button container */
+#mission-control-clear-button {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Clear Use Case button styling */
+#mission-control-clear-button button {
+  background-color: #dc2626 !important;
+  color: white !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 0.5rem !important;
+  font-weight: 600 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  transition: background-color 0.2s !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+#mission-control-clear-button button:hover {
+  background-color: #b91c1c !important;
+}
+
+/* Ensure proper button layout on smaller screens */
+@media (max-width: 768px) {
+  .flex.items-center.justify-between:has(button:contains("Upload Data")) {
+    flex-wrap: wrap !important;
+  }
+  
+  #mission-control-clear-button {
+    margin-top: 0.5rem !important;
+    width: 100% !important;
+  }
+  
+  #mission-control-clear-button button {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seraphim Vanguards - Brand Showcase</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Brand CSS -->
+    <link rel="stylesheet" href="/assets/css/seraphim-brand.css">
+    
+    <style>
+        .showcase-section {
+            margin-bottom: var(--space-3xl);
+            padding: var(--space-2xl) 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .showcase-section:last-child {
+            border-bottom: none;
+        }
+        
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+        
+        .color-swatch {
+            text-align: center;
+            padding: var(--space-lg);
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .color-preview {
+            width: 100%;
+            height: 100px;
+            border-radius: var(--radius-sm);
+            margin-bottom: var(--space-md);
+        }
+        
+        .typography-examples {
+            margin-top: var(--space-xl);
+        }
+        
+        .typography-examples > * {
+            margin-bottom: var(--space-lg);
+        }
+        
+        .component-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+        
+        .icon-showcase {
+            display: flex;
+            gap: var(--space-xl);
+            justify-content: center;
+            align-items: center;
+            margin: var(--space-2xl) 0;
+        }
+        
+        .icon-item {
+            text-align: center;
+        }
+        
+        .icon-item img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .animation-demo {
+            display: flex;
+            gap: var(--space-2xl);
+            justify-content: center;
+            align-items: center;
+            margin: var(--space-2xl) 0;
+            flex-wrap: wrap;
+        }
+        
+        .demo-box {
+            width: 100px;
+            height: 100px;
+            background: var(--seraphim-gold);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--seraphim-obsidian);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <header class="seraphim-header">
+        <div class="seraphim-logo">
+            <img src="/assets/Seraphim Vanguards Logo.png" alt="Seraphim Vanguards">
+            <span class="seraphim-wordmark">Brand Showcase</span>
+        </div>
+        <div class="trinity-display">
+            <span class="trinity-item trinity-security">Security</span>
+            <span class="trinity-item trinity-integrity">Integrity</span>
+            <span class="trinity-item trinity-accuracy">Accuracy</span>
+        </div>
+    </header>
+    
+    <main class="seraphim-main">
+        <div class="container">
+            <!-- Hero Section -->
+            <div class="showcase-section text-center">
+                <h1 class="h1 mb-lg">Seraphim Vanguards Brand System</h1>
+                <p class="body-large text-muted">Celestial Precision + Tactical Robotics</p>
+                <div class="icon-showcase">
+                    <div class="icon-item">
+                        <img src="/assets/icons/vanguard-security.svg" alt="Security" class="celestial-float">
+                        <p class="caption">Security Vanguard</p>
+                    </div>
+                    <div class="icon-item">
+                        <img src="/assets/icons/vanguard-integrity.svg" alt="Integrity" class="celestial-float" style="animation-delay: 0.5s;">
+                        <p class="caption">Integrity Vanguard</p>
+                    </div>
+                    <div class="icon-item">
+                        <img src="/assets/icons/vanguard-accuracy.svg" alt="Accuracy" class="celestial-float" style="animation-delay: 1s;">
+                        <p class="caption">Accuracy Vanguard</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Color System -->
+            <div class="showcase-section">
+                <h2 class="h2">Color System</h2>
+                <div class="color-grid">
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: var(--seraphim-gold);"></div>
+                        <h4>Seraphim Gold</h4>
+                        <code>#D4AF37</code>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: var(--seraphim-obsidian);"></div>
+                        <h4>Obsidian</h4>
+                        <code>#0A0A0A</code>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: var(--vanguard-security);"></div>
+                        <h4>Security Blue</h4>
+                        <code>#3B82F6</code>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: var(--vanguard-integrity);"></div>
+                        <h4>Integrity Red</h4>
+                        <code>#DC2626</code>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: var(--vanguard-accuracy);"></div>
+                        <h4>Accuracy Green</h4>
+                        <code>#10B981</code>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: var(--seraphim-ethereal);"></div>
+                        <h4>Ethereal</h4>
+                        <code>#1A1A1A</code>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Typography -->
+            <div class="showcase-section">
+                <h2 class="h2">Typography</h2>
+                <div class="typography-examples">
+                    <h1 class="h1">Heading 1 - Sora Bold</h1>
+                    <h2 class="h2">Heading 2 - Sora Semibold</h2>
+                    <h3 class="h3">Heading 3 - Sora Semibold</h3>
+                    <h4 class="h4">Heading 4 - Sora Medium</h4>
+                    <p class="body-large">Body Large - Inter Regular (1.125rem)</p>
+                    <p class="body-base">Body Base - Inter Regular (1rem)</p>
+                    <p class="body-small">Body Small - Inter Regular (0.875rem)</p>
+                    <p class="caption">Caption - Inter Regular (0.75rem)</p>
+                    <p><code>Code - JetBrains Mono</code></p>
+                    <p style="font-family: var(--font-display); font-size: 2rem; color: var(--seraphim-gold);">ORBITRON DISPLAY</p>
+                </div>
+            </div>
+            
+            <!-- Buttons -->
+            <div class="showcase-section">
+                <h2 class="h2">Buttons</h2>
+                <div class="component-grid">
+                    <div>
+                        <h4 class="mb-md">Primary Buttons</h4>
+                        <button class="btn btn-primary mb-sm">Primary Button</button><br>
+                        <button class="btn btn-primary" disabled>Disabled Button</button>
+                    </div>
+                    <div>
+                        <h4 class="mb-md">Vanguard Buttons</h4>
+                        <button class="btn btn-security mb-sm">Security Action</button><br>
+                        <button class="btn btn-integrity mb-sm">Integrity Action</button><br>
+                        <button class="btn btn-accuracy">Accuracy Action</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cards -->
+            <div class="showcase-section">
+                <h2 class="h2">Cards</h2>
+                <div class="seraphim-grid seraphim-grid-3">
+                    <div class="card card-security">
+                        <div class="card-header">
+                            <h3 class="text-security">Security Card</h3>
+                            <span class="badge badge-security">Active</span>
+                        </div>
+                        <p class="body-base">This is a security-themed card with blue accent colors and glow effects.</p>
+                        <button class="btn btn-security">Security Action</button>
+                    </div>
+                    
+                    <div class="card card-integrity">
+                        <div class="card-header">
+                            <h3 class="text-integrity">Integrity Card</h3>
+                            <span class="badge badge-integrity">Verified</span>
+                        </div>
+                        <p class="body-base">This is an integrity-themed card with red accent colors and glow effects.</p>
+                        <button class="btn btn-integrity">Integrity Action</button>
+                    </div>
+                    
+                    <div class="card card-accuracy">
+                        <div class="card-header">
+                            <h3 class="text-accuracy">Accuracy Card</h3>
+                            <span class="badge badge-accuracy">Precise</span>
+                        </div>
+                        <p class="body-base">This is an accuracy-themed card with green accent colors and glow effects.</p>
+                        <button class="btn btn-accuracy">Accuracy Action</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Badges -->
+            <div class="showcase-section">
+                <h2 class="h2">Badges</h2>
+                <div class="d-flex flex-wrap" style="gap: var(--space-md);">
+                    <span class="badge">Default</span>
+                    <span class="badge badge-security">Security</span>
+                    <span class="badge badge-integrity">Integrity</span>
+                    <span class="badge badge-accuracy">Accuracy</span>
+                </div>
+            </div>
+            
+            <!-- Animations -->
+            <div class="showcase-section">
+                <h2 class="h2">Animations</h2>
+                <div class="animation-demo">
+                    <div class="demo-box glow-pulse">Glow Pulse</div>
+                    <div class="demo-box celestial-float">Float</div>
+                    <div class="demo-box divine-rotate">Rotate</div>
+                    <div class="seraphim-spinner"></div>
+                </div>
+            </div>
+            
+            <!-- Grid System -->
+            <div class="showcase-section">
+                <h2 class="h2">Grid System</h2>
+                <div class="seraphim-grid seraphim-grid-4 mb-lg">
+                    <div class="card text-center">
+                        <p>Grid 4</p>
+                    </div>
+                    <div class="card text-center">
+                        <p>Grid 4</p>
+                    </div>
+                    <div class="card text-center">
+                        <p>Grid 4</p>
+                    </div>
+                    <div class="card text-center">
+                        <p>Grid 4</p>
+                    </div>
+                </div>
+                
+                <div class="seraphim-grid seraphim-grid-3 mb-lg">
+                    <div class="card text-center">
+                        <p>Grid 3</p>
+                    </div>
+                    <div class="card text-center">
+                        <p>Grid 3</p>
+                    </div>
+                    <div class="card text-center">
+                        <p>Grid 3</p>
+                    </div>
+                </div>
+                
+                <div class="seraphim-grid seraphim-grid-2">
+                    <div class="card text-center">
+                        <p>Grid 2</p>
+                    </div>
+                    <div class="card text-center">
+                        <p>Grid 2</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Info Boxes -->
+            <div class="showcase-section">
+                <h2 class="h2">Info Boxes</h2>
+                <div class="info-box">
+                    <h4>Important Information</h4>
+                    <p>This is an info box used to highlight important information or provide additional context to users.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="seraphim-footer">
+        <img src="/assets/Seraphim Logo.png" alt="Seraphim" class="footer-logo glow-pulse">
+        <p class="caption">© 2024 Seraphim Vanguards. All rights reserved.</p>
+    </footer>
+    
+    <!-- Brand JavaScript -->
+    <script src="/assets/js/seraphim-brand.js"></script>
+</body>
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Seraphim Vanguards</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Sora:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Brand CSS -->
+    <link rel="stylesheet" href="/assets/css/seraphim-brand.css">
+    
+    <style>
+        /* Login-specific styles */
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Background effects */
+        .bg-effects {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        
+        .flame-effect {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(ellipse at center bottom, rgba(212, 175, 55, 0.3) 0%, transparent 70%);
+            filter: blur(40px);
+            animation: flicker 3s ease-in-out infinite;
+        }
+        
+        @keyframes flicker {
+            0%, 100% { opacity: 0.3; transform: translateX(-50%) scale(1); }
+            50% { opacity: 0.5; transform: translateX(-50%) scale(1.1); }
+        }
+        
+        /* Main container */
+        .login-container {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 400px;
+            padding: 2rem;
+        }
+        
+        /* Logo section */
+        .logo-section {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .logo-wrapper {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1.5rem;
+            position: relative;
+        }
+        
+        .logo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        /* Form styling */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .input-wrapper {
+            position: relative;
+        }
+        
+        .input-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            color: var(--color-text-tertiary);
+        }
+        
+        .form-control {
+            padding-left: 3rem;
+        }
+        
+        .forgot-password {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .forgot-password:hover {
+            color: var(--color-primary-light);
+        }
+        
+        /* Security options */
+        .security-options {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--color-border);
+        }
+        
+        .security-title {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .security-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+        }
+        
+        .btn-security {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+        }
+        
+        .btn-security svg {
+            width: 16px;
+            height: 16px;
+        }
+        
+        /* Divider */
+        .divider {
+            position: relative;
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--color-border);
+        }
+        
+        .divider span {
+            position: relative;
+            padding: 0 1rem;
+            background: var(--color-bg-primary);
+        }
+        
+        /* Register link */
+        .register-link {
+            text-align: center;
+        }
+        
+        /* Demo credentials */
+        .demo-card {
+            margin-top: 2rem;
+        }
+        
+        .demo-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .demo-header svg {
+            width: 20px;
+            height: 20px;
+            color: var(--color-primary);
+        }
+        
+        .demo-credentials {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .credential {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+        }
+        
+        .role-badge {
+            padding: 0.125rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.625rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .role-badge.admin {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+        
+        .role-badge.risk {
+            background: rgba(239, 68, 68, 0.2);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        
+        .role-badge.compliance {
+            background: rgba(34, 197, 94, 0.2);
+            color: #4ade80;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+    </style>
+</head>
+<body class="seraphim-theme">
+    <div class="bg-effects">
+        <div class="flame-effect"></div>
+        <div class="grid-pattern"></div>
+    </div>
+    
+    <div class="login-container">
+        <div class="logo-section">
+            <div class="logo-wrapper glow-pulse">
+                <img src="/assets/Seraphim Logo.png" alt="Seraphim Logo">
+            </div>
+            <h1 class="h1 text-gradient">Seraphim</h1>
+            <p class="caption text-secondary">High-Trust AI Governance Platform</p>
+        </div>
+        
+        <div class="card card-elevated">
+            <form>
+                <div class="form-group">
+                    <label for="email" class="label">Email Address</label>
+                    <div class="input-wrapper">
+                        <svg class="input-icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                        </svg>
+                        <input type="email" id="email" class="form-control" placeholder="Enter your email" />
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password" class="label">Password</label>
+                    <div class="input-wrapper">
+                        <svg class="input-icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+                        </svg>
+                        <input type="password" id="password" class="form-control" placeholder="Enter your password" />
+                    </div>
+                </div>
+                
+                <a href="#" class="forgot-password link">Forgot password?</a>
+                
+                <button type="submit" class="btn btn-primary btn-block">
+                    Sign In
+                </button>
+                
+                <div class="security-options">
+                    <p class="security-title caption text-secondary">Enhanced Security Options</p>
+                    <div class="security-buttons">
+                        <button type="button" class="btn btn-secondary btn-security">
+                            <svg viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M6.625 2.655A9 9 0 0119 11a1 1 0 11-2 0 7 7 0 00-9.625-6.492 1 1 0 11-.75-1.853zM4.662 4.959A1 1 0 014.75 6.37 6.97 6.97 0 003 11a1 1 0 11-2 0 8.97 8.97 0 012.25-5.953 1 1 0 011.412-.088z" clip-rule="evenodd"/>
+                                <path fill-rule="evenodd" d="M5 11a5 5 0 1110 0 1 1 0 11-2 0 3 3 0 10-6 0c0 1.677-.345 3.276-.968 4.729a1 1 0 11-1.838-.789A9.964 9.964 0 005 11zm8.921 2.012a1 1 0 01.831 1.145 19.86 19.86 0 01-.545 2.436 1 1 0 11-1.92-.558c.207-.713.371-1.445.49-2.192a1 1 0 011.144-.83z" clip-rule="evenodd"/>
+                                <path fill-rule="evenodd" d="M10 10a1 1 0 011 1c0 2.236-.46 4.368-1.29 6.304a1 1 0 01-1.838-.789A13.952 13.952 0 009 11a1 1 0 011-1z" clip-rule="evenodd"/>
+                            </svg>
+                            Biometric
+                        </button>
+                        <button type="button" class="btn btn-secondary btn-security">
+                            <svg viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                            </svg>
+                            2FA Code
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="divider">
+                    <span class="caption text-tertiary">Or</span>
+                </div>
+                
+                <div class="register-link">
+                    <span class="text-secondary">Don't have an account?</span> 
+                    <a href="register.html" class="link">Register here</a>
+                </div>
+            </form>
+        </div>
+        
+        <div class="card demo-card">
+            <div class="demo-header">
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                </svg>
+                <h3 class="h6">Demo Credentials</h3>
+            </div>
+            <div class="demo-credentials">
+                <div class="credential">
+                    <span class="role-badge admin">Admin</span>
+                    <span class="text-secondary">admin@seraphim.ai / Admin123!</span>
+                </div>
+                <div class="credential">
+                    <span class="role-badge risk">Risk</span>
+                    <span class="text-secondary">risk@seraphim.ai / Risk123!</span>
+                </div>
+                <div class="credential">
+                    <span class="role-badge compliance">Compliance</span>
+                    <span class="text-secondary">compliance@seraphim.ai / Comp123!</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Brand JavaScript -->
+    <script src="/assets/js/seraphim-brand.js"></script>
+</body>
+</html>
